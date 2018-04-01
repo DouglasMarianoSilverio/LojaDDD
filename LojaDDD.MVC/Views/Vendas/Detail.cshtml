@@ -1,0 +1,86 @@
+﻿@model LojaDDD.MVC.ViewModels.VendaViewModel
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>VendaViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataVenda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataVenda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorTotal)
+        </dd>
+
+    </dl>
+    
+    <div class="panel-body">
+        <div class="col-md-12 col-sm-12">
+            <table class="table">
+                <tr>
+                    <th>
+                        Produto
+                    </th>
+                    <th>
+                        Quantidade
+                    </th>
+                    <th>
+                        Valor
+                    </th>
+                    <th>
+                        Total
+                    </th>
+                </tr>
+
+                @foreach (var itemVenda in Model.ProdutosVenda)
+                {
+                    <tr>
+                        <td>
+                            @itemVenda.Produto.Nome
+                        </td>
+                        <td>
+                            @itemVenda.Quantidade
+                        </td>
+                        <td>
+                            @itemVenda.ValorUnitario
+                        </td>
+                        <td>
+                            @itemVenda.Quantidade
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
