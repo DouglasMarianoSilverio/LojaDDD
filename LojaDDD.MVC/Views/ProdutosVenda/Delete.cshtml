@@ -1,24 +1,21 @@
 ﻿@model LojaDDD.MVC.ViewModels.ProdutoVendaViewModel
 
-<h3>Confirma a Exclus~~ao do item?</h3>
+<h3>Confirmar a exclusão</h3>
 <div>
     <h4>ProdutoVendaViewModel</h4>
     <hr />
     <dl class="dl-horizontal">
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.VendaId)
+        @Html.HiddenFor(model => model.ProdutoId)
+        
+
         <dt>
-            @Html.DisplayNameFor(model => model.VendaId)
+            @Html.DisplayNameFor(model => model.Produto.Nome)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.VendaId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProdutoId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProdutoId)
+            @Html.DisplayFor(model => model.Produto.Nome)
         </dd>
 
         <dt>
@@ -50,9 +47,20 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                    Cancelar
+                </button>
+                <button type="submit" id="approve-btn" value="delete"
+                        class="btn btn-danger">
+                    Excluir
+                </button>
+            </div>
         </div>
     }
 </div>

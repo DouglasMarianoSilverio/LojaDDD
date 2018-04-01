@@ -70,6 +70,7 @@ namespace LojaDDD.MVC.Controllers
                 try
                 {
                     produtoVendaDomain.Venda = null;
+                    produtoVenda.ValorTotal = produtoVenda.Quantidade * produtoVenda.ValorUnitario;
                     _produtoVendaApp.Add(produtoVendaDomain);
                     return RedirectToAction("Edit", "Vendas",new {id = produtoVendaDomain.VendaId} );
 
@@ -119,7 +120,7 @@ namespace LojaDDD.MVC.Controllers
         {
             var produtoVenda = _produtoVendaApp.GetById(id);
             var produvoVendaViewModel = Mapper.Map<ProdutoVenda, ProdutoVendaViewModel>(produtoVenda);
-            return View(produvoVendaViewModel);
+            return PartialView(produvoVendaViewModel);
         }
 
         // POST: ProdutosVenda/Delete/5

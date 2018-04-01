@@ -66,6 +66,7 @@ namespace LojaDDD.MVC.Controllers
             var venda = _vendaApp.GetById(id);
             var vendaViewModel = Mapper.Map<Venda, VendaViewModel>(venda);
             ViewBag.ClienteId = new SelectList(_clienteApp.GetAll(), "Id", "Nome");
+            vendaViewModel.ValorTotal = vendaViewModel.ProdutosVenda.Sum(pv => pv.ValorTotal);
             return View(vendaViewModel);
         }
 
