@@ -54,6 +54,7 @@ namespace LojaDDD.MVC.Controllers
 
             var produtoVenda = new ProdutoVenda();
             produtoVenda.VendaId = venda.Id;
+            produtoVenda.Venda = venda;
             var produtoVendaView = Mapper.Map<ProdutoVenda, ProdutoVendaViewModel>(produtoVenda);
             ViewBag.ProdutoId = new SelectList(_produtoApp.GetAll(), "Id", "Nome");
             return View(produtoVendaView);
@@ -68,6 +69,7 @@ namespace LojaDDD.MVC.Controllers
                 var produtoVendaDomain = Mapper.Map<ProdutoVendaViewModel, ProdutoVenda>(produtoVenda);
                 try
                 {
+                    produtoVendaDomain.Venda = null;
                     _produtoVendaApp.Add(produtoVendaDomain);
                     return RedirectToAction("Edit", "Vendas",new {id = produtoVendaDomain.VendaId} );
 
