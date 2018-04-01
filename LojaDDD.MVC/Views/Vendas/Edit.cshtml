@@ -21,8 +21,8 @@
             @Html.LabelFor(model => model.Cliente.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.HiddenFor(model => model.ClienteId)
-                @Html.EditorFor(model => model.Cliente.Nome, new { htmlAttributes = new { @class = "form-control" , disabled= "disabled" } })
-                
+                @Html.EditorFor(model => model.Cliente.Nome, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+
                 @Html.ValidationMessageFor(model => model.ClienteId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -48,7 +48,7 @@
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
-        
+
         @{ if ((Model.Id != null) && (Model.Id != Int16.MinValue))
             {
                 <div class="panel panel-default" style="margin:20px;">
@@ -61,14 +61,16 @@
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6">
                                     @*<button class="btn btn-success btn-sm" type="button" data-toggle="modal" data-target="#myModal">Novo Item</button>*@
-                                    @Html.ActionLink("Incluir novo Item","Create","ProdutosVenda",new {vendaId= @Model.Id}, new { @class = "badge badge-success" })
+                                    @Html.ActionLink("Incluir novo Item", "Create", "ProdutosVenda", new { vendaId = @Model.Id }, new { @class = "badge badge-success" })
+                                    @Html.ActionLink("ShowModal", "Create", "ProdutosVenda",
+                                        new { vendaId = @Model.Id }, new { @class = "modal-link btn btn-success" })
                                     @*<a href="#" class="btn btn-default btn-details" data-id="@Model.Id"> Incluir Item</a>*@
-                                    </div>
-                            </div>  
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="panel-body">
-                        <div  >
+                        <div>
                             <table class="table">
                                 <tr>
                                     <th>
@@ -102,9 +104,9 @@
                                         </td>
                                         <td>
                                             @*<button class="btn btn-danger" type="submit" onclick="javascript: deleteRecord('@itemVenda.Id', '@Url.Action(LojaDDD.MVC.Controllers.ProdutosVendaController. .DeleteItem())');">Deletar</button>*@
-                                            @Html.ActionLink("Excluir","DeleteConfirmed","ProdutosVenda",new {id=@itemVenda.Id}, null )    
-                                        
-                                            </td>
+                                            @Html.ActionLink("Excluir", "DeleteConfirmed", "ProdutosVenda", new { id = @itemVenda.Id }, null)
+
+                                        </td>
                                     </tr>
                                 }
 
@@ -115,32 +117,48 @@
             }
         }
 
-        
+
     </div>
-}
+            }
 
 @*<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>*@
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-                    
-            <div class="modal-body">
-                <div class="modal" id="conteudoModal">
-
-                </div>
-            </div>
-                    
-        </div>
-    </div>
+<div class="modal fade" id="modal-container" tabindex="-1" role="dialog">
+    <div class="modal-content"></div>  
 </div>
 @section Scripts {
 
     @Scripts.Render("~/bundles/jqueryval")
-    <script type="text/javascript">
-        $(document).ready(function() {
+<script type="text/javascript">
+        $(function () {
+            // Initialize numeric spinner input boxes
+            //$(".numeric-spinner").spinedit();
+            // Initialize modal dialog
+            // attach modal-container bootstrap attributes to links with .modal-link class.
+            // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+            $('body').on('click', '.modal-link', function (e) {
+                e.preventDefault();
+                $(this).attr('data-target', '#modal-container');
+                $(this).attr('data-toggle', 'modal');
+            });
+            // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+            $('body').on('click', '.modal-close-btn', function () {
+                $('#modal-container').modal('hide');
+            });
+            //clear modal cache, so that new content can be loaded
+            $('#modal-container').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+            $('#CancelModal').on('click', function () {
+                return false;
+            });
+        });
+</script>
+
+    @*<script type="text/javascript">
+        $(document).ready(function () {
             $(".btn-details").click(function () {
                 var id = $(this).attr("data-id");
                 alert(id);
@@ -151,6 +169,6 @@
             });
         })
 
-    </script>
+    </script>*@
 
 }

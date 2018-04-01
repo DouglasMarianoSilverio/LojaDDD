@@ -57,7 +57,7 @@ namespace LojaDDD.MVC.Controllers
             produtoVenda.Venda = venda;
             var produtoVendaView = Mapper.Map<ProdutoVenda, ProdutoVendaViewModel>(produtoVenda);
             ViewBag.ProdutoId = new SelectList(_produtoApp.GetAll(), "Id", "Nome");
-            return View(produtoVendaView);
+            return PartialView(produtoVendaView);
         }
 
         // POST: ProdutosVenda/Create
@@ -80,7 +80,7 @@ namespace LojaDDD.MVC.Controllers
                     ViewBag.Alerta = "Erro ao cadastrar o item" + ex.Message;
                     ViewBag.VendaId = new SelectList(_vendaApp.GetAll(), "Id", "Id");
                     ViewBag.ProdutoId = new SelectList(_produtoApp.GetAll(), "Id", "Nome");
-                    return View(produtoVenda);
+                    return PartialView(produtoVenda);
                 }
             }
 
@@ -89,7 +89,7 @@ namespace LojaDDD.MVC.Controllers
 
             ViewBag.VendaId = new SelectList(_vendaApp.GetAll(), "Id", "Id");
             ViewBag.ProdutoId = new SelectList(_produtoApp.GetAll(), "Id", "Nome");
-            return View(produtoVenda);
+            return PartialView(produtoVenda);
         }
 
         // GET: ProdutosVenda/Edit/5
