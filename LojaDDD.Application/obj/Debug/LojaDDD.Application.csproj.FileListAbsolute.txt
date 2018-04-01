@@ -1,7 +1,0 @@
-C:\Users\douglas.silverio\Documents\Visual Studio 2015\Projects\LojaDDD\LojaDDD.Application\obj\Debug\LojaDDD.Application.csprojResolveAssemblyReference.cache
-C:\Users\douglas.silverio\Documents\Visual Studio 2015\Projects\LojaDDD\LojaDDD.Application\bin\Debug\LojaDDD.Application.dll
-C:\Users\douglas.silverio\Documents\Visual Studio 2015\Projects\LojaDDD\LojaDDD.Application\bin\Debug\LojaDDD.Application.pdb
-C:\Users\douglas.silverio\Documents\Visual Studio 2015\Projects\LojaDDD\LojaDDD.Application\bin\Debug\LojaDDD.Domain.dll
-C:\Users\douglas.silverio\Documents\Visual Studio 2015\Projects\LojaDDD\LojaDDD.Application\bin\Debug\LojaDDD.Domain.pdb
-C:\Users\douglas.silverio\Documents\Visual Studio 2015\Projects\LojaDDD\LojaDDD.Application\obj\Debug\LojaDDD.Application.dll
-C:\Users\douglas.silverio\Documents\Visual Studio 2015\Projects\LojaDDD\LojaDDD.Application\obj\Debug\LojaDDD.Application.pdb
