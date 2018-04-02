@@ -94,6 +94,13 @@ namespace LojaDDD.MVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             var cliente = _clienteApp.GetById(id);
+            if (cliente.Vendas.Count > 0)
+            {
+                ViewBag.Alerta = "Cliente possui vendas cadastras.";
+                var clienteModel = Mapper.Map<Cliente, ClienteViewModel>(cliente);
+                return View(clienteModel);
+            }
+
             _clienteApp.Remove(cliente);
             return RedirectToAction("Index");
         }

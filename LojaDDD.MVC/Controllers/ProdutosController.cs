@@ -99,6 +99,14 @@ namespace LojaDDD.MVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             var produto = _produtoApp.GetById(id);
+
+            if (produto.ProdutosVenda.Count > 0)
+            {
+                ViewBag.Alerta = "Produto está cadastrado em Vendas.";
+                var produtoView = Mapper.Map<Produto, ProdutoViewModel>(produto);
+                return View(produtoView);
+            }
+
             _produtoApp.Remove(produto);
             return RedirectToAction("Index");
         }

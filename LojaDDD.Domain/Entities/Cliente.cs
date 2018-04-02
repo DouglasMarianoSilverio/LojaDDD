@@ -13,7 +13,7 @@ namespace LojaDDD.Domain.Entities
 
         public String Telefone { get; set; }
 
-        public IList<Venda> Vendas { get; set; }
+        public virtual IList<Venda> Vendas { get; set; }
         
         public int Idade()
         {
