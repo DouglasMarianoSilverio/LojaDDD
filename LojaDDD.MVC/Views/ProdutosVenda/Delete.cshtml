@@ -1,9 +1,7 @@
 ﻿@model LojaDDD.MVC.ViewModels.ProdutoVendaViewModel
 
 <h3>Confirmar a exclusão</h3>
-<div>
-    <h4>ProdutoVendaViewModel</h4>
-    <hr />
+<div class="modal-body">
     <dl class="dl-horizontal">
         @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(model => model.VendaId)
@@ -56,7 +54,7 @@
                         data-dismiss="modal">
                     Cancelar
                 </button>
-                <button type="submit" id="approve-btn" value="delete"
+                <button type="submit" id="approve-btn" value="Excluir"
                         class="btn btn-danger">
                     Excluir
                 </button>
