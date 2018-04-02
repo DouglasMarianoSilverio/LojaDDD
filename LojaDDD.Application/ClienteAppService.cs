@@ -14,6 +14,9 @@ namespace LojaDDD.Application
             _clienteService = clienteService;
         }
 
-        
+        public bool ValidarExclusao(Cliente cliente)
+        {
+            return cliente.Vendas.Count == 0;
+        }
     }
 }

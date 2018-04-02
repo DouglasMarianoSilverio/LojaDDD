@@ -2,7 +2,7 @@
 
 namespace LojaDDD.Application.Interface
 {
-    public interface IClienteAppService : IAppServiceBase<Cliente>
+    public interface IClienteAppService : IAppServiceBase<Cliente>,IAppServiceBaseValidarExclusao<Cliente>
     {
     }
 }

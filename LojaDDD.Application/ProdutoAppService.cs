@@ -13,7 +13,10 @@ namespace LojaDDD.Application
         {
             _produtoService = produtoService;
         }
-
         
+        public bool ValidarExclusao(Produto produto)
+        {
+            return produto.ProdutosVenda.Count == 0;
+        }
     }
 }

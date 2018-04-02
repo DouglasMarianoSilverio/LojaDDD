@@ -11,5 +11,10 @@ namespace LojaDDD.Application
         {
             _vendaService = vendaService;
         }
+
+        public bool ValidarExclusao(Venda venda)
+        {
+            return venda.ProdutosVenda.Count == 0;
+        }
     }
 }

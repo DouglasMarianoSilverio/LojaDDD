@@ -100,9 +100,8 @@ namespace LojaDDD.MVC.Controllers
         public virtual ActionResult DeleteConfirmed(int id)
         {
             var venda = _vendaApp.GetById(id);
-
             
-            if (venda.ProdutosVenda.Count > 0)
+            if (!_vendaApp.ValidarExclusao(venda))
             {
                 var vendaViewModel = Mapper.Map<Venda, VendaViewModel>(venda);
                 ViewBag.Alerta = string.Format("Por favor excluir os itens antes de excluir a venda {0} ",venda.Id);

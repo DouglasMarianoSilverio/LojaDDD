@@ -33,6 +33,7 @@
     <Compile Include="AppServiceBase.cs" />
     <Compile Include="ClienteAppService.cs" />
     <Compile Include="Interface\IAppServiceBase.cs" />
+    <Compile Include="Interface\IAppServiceBaseValidarExclusao.cs" />
     <Compile Include="Interface\IClienteAppService.cs" />
     <Compile Include="Interface\IProdutoAppService.cs" />
     <Compile Include="Interface\IProdutoVendaAppService.cs" />

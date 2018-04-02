@@ -94,7 +94,8 @@ namespace LojaDDD.MVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             var cliente = _clienteApp.GetById(id);
-            if (cliente.Vendas.Count > 0)
+
+            if (!_clienteApp.ValidarExclusao(cliente))
             {
                 ViewBag.Alerta = "Cliente possui vendas cadastras.";
                 var clienteModel = Mapper.Map<Cliente, ClienteViewModel>(cliente);

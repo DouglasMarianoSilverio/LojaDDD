@@ -2,7 +2,7 @@
 
 namespace LojaDDD.Application.Interface
 {
-    public interface IProdutoAppService : IAppServiceBase<Produto>
+    public interface IProdutoAppService : IAppServiceBase<Produto>,IAppServiceBaseValidarExclusao<Produto>
     {
     }
 }

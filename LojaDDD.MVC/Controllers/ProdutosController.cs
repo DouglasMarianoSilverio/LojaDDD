@@ -100,7 +100,7 @@ namespace LojaDDD.MVC.Controllers
         {
             var produto = _produtoApp.GetById(id);
 
-            if (produto.ProdutosVenda.Count > 0)
+            if (!_produtoApp.ValidarExclusao(produto))
             {
                 ViewBag.Alerta = "Produto está cadastrado em Vendas.";
                 var produtoView = Mapper.Map<Produto, ProdutoViewModel>(produto);
