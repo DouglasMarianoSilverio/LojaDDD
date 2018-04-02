@@ -16,7 +16,8 @@ namespace LojaDDD.MVC.ViewModels
         public int ClienteId { get; set; }
         public virtual ClienteViewModel Cliente { get; set; }
 
-        [DisplayName("Data")]
+        [DisplayName("Data da Venda")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataVenda { get; set; }
 
         [DisplayName("Valor total")]

@@ -11,10 +11,7 @@
 
 
     <div class="form-horizontal">
-        <div class="modal-header">
-            <h4>Cadastro de Item da Venda</h4>
-        </div>
-        <hr />
+        
         <div class="modal-body">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Venda.Id)

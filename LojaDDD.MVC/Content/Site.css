@@ -22,3 +22,13 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.modal-content {
+    width: 800px !important;
+    margin: 30px auto !important;
+}
+.modal-backdrop
+{
+    opacity:0.5 !important;
+}
+
