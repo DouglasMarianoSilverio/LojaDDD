@@ -43,6 +43,10 @@
     <Compile Include="Migrations\201803300304044_novo_inicio1.Designer.cs">
       <DependentUpon>201803300304044_novo_inicio1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804020113472_excluir em cascata.cs" />
+    <Compile Include="Migrations\201804020113472_excluir em cascata.Designer.cs">
+      <DependentUpon>201804020113472_excluir em cascata.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\CorrecaonatabelaprodutoVenda.cs" />
     <Compile Include="Migrations\CorrecaonatabelaprodutoVenda.Designer.cs">
       <DependentUpon>CorrecaonatabelaprodutoVenda.cs</DependentUpon>
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803300304044_novo_inicio1.resx">
       <DependentUpon>201803300304044_novo_inicio1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020113472_excluir em cascata.resx">
+      <DependentUpon>201804020113472_excluir em cascata.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\CorrecaonatabelaprodutoVenda.resx">
       <DependentUpon>CorrecaonatabelaprodutoVenda.cs</DependentUpon>

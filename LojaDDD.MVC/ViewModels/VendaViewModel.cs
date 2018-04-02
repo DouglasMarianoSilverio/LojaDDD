@@ -21,7 +21,10 @@ namespace LojaDDD.MVC.ViewModels
         public DateTime DataVenda { get; set; }
 
         [DisplayName("Valor total")]
-        public Decimal? ValorTotal { get; set; }
+        public Decimal? ValorTotal {
+           get { return ProdutosVenda.Sum(pv => pv.ValorUnitario * pv.Quantidade  ); }
+            
+        }
         public virtual IEnumerable<ProdutoVenda> ProdutosVenda { get; set; }
     }
 }   

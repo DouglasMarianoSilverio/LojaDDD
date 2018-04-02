@@ -66,7 +66,7 @@ namespace LojaDDD.MVC.Controllers
             var venda = _vendaApp.GetById(id);
             var vendaViewModel = Mapper.Map<Venda, VendaViewModel>(venda);
             ViewBag.ClienteId = new SelectList(_clienteApp.GetAll(), "Id", "Nome");
-            vendaViewModel.ValorTotal = vendaViewModel.ProdutosVenda.Sum(pv => pv.ValorTotal);
+            
             return View(vendaViewModel);
         }
 
@@ -90,28 +90,32 @@ namespace LojaDDD.MVC.Controllers
         // GET: Vendas/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var venda = _vendaApp.GetById(id);
+            var vendaViewModel = Mapper.Map<Venda, VendaViewModel>(venda);
+            return View(vendaViewModel);
         }
 
-        public virtual ActionResult DeleteItem(int Id)
+        [HttpPost, ActionName("delete")]
+        [ValidateAntiForgeryToken]
+        public virtual ActionResult DeleteConfirmed(int id)
         {
-            return Content("Dados Excluidos");
+            var venda = _vendaApp.GetById(id);
+
+            
+            if (venda.ProdutosVenda.Count > 0)
+            {
+                var vendaViewModel = Mapper.Map<Venda, VendaViewModel>(venda);
+                ViewBag.Alerta = string.Format("Por favor excluir os itens antes de excluir a venda {0} ",venda.Id);
+                return View(vendaViewModel);
+            }
+
+            _vendaApp.Remove(venda);
+             //var vendaViewModelList = Mapper.Map<IEnumerable<Venda>, IEnumerable<VendaViewModel>>(_vendaApp.GetAll());
+            return RedirectToAction("Index");
+
+
         }
 
-        // POST: Vendas/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

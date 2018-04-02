@@ -70,7 +70,7 @@ namespace LojaDDD.MVC.Controllers
                 try
                 {
                     produtoVendaDomain.Venda = null;
-                    produtoVenda.ValorTotal = produtoVenda.Quantidade * produtoVenda.ValorUnitario;
+                    produtoVendaDomain.ValorTotal = produtoVenda.Quantidade * produtoVenda.ValorUnitario;
                     _produtoVendaApp.Add(produtoVendaDomain);
                     return RedirectToAction("Edit", "Vendas",new {id = produtoVendaDomain.VendaId} );
 

@@ -12,7 +12,8 @@ namespace LojaDDD.Infra.Data.EntityConfig
             
             HasMany(v => v.ProdutosVenda)
                 .WithRequired(pv=>pv.Venda)
-                .HasForeignKey(pv=>pv.VendaId);
+                .HasForeignKey(pv=>pv.VendaId)
+                .WillCascadeOnDelete(true);
         }
     }
 }

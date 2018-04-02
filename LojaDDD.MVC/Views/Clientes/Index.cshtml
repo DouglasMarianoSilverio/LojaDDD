@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<LojaDDD.MVC.ViewModels.ClienteViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de CLientes";
 }
 
-<h2>Index</h2>
+<h2>Lista de Clientes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar novo", "Create",null,new {@class="btn btn-success"})
 </p>
 <table class="table">
     <tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Telefone)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID },  new {@class="btn btn-warning"})
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ID } , new {@class="btn btn-info"} )  
+            @Html.ActionLink("Excluir", "Delete", new { id=item.ID } , new {@class="btn btn-danger"})
         </td>
     </tr>
 }
