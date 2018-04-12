@@ -7,7 +7,7 @@ using LojaDDD.Infra.Data.Context;
 
 namespace LojaDDD.Infra.Data.Repositories
 {
-    public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
+    public class RepositoryBase<TEntity> :  IRepositoryBase<TEntity> where TEntity : class
     {
         protected LojaDDDContext Db = new LojaDDDContext();
 
@@ -45,9 +45,5 @@ namespace LojaDDD.Infra.Data.Repositories
             Db.SaveChanges();
         }
 
-        public void Dispose()
-        {
-            this.Db.Dispose();
-        }
     }
 }

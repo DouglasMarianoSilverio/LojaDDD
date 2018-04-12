@@ -13,7 +13,7 @@ namespace LojaDDD.Domain.Interfaces.Repositories
         void Update(TEntity obj);
         void Remove(TEntity obj);
 
-        void Dispose();
+        
 
     }
 }

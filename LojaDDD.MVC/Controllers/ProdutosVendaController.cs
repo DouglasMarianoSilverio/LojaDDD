@@ -81,7 +81,8 @@ namespace LojaDDD.MVC.Controllers
                     ViewBag.Alerta = "Erro ao cadastrar o item" + ex.Message;
                     ViewBag.VendaId = new SelectList(_vendaApp.GetAll(), "Id", "Id");
                     ViewBag.ProdutoId = new SelectList(_produtoApp.GetAll(), "Id", "Nome");
-                    return PartialView(produtoVenda);
+                    //return PartialView(produtoVenda);
+                    return RedirectToAction("Edit", "Vendas", new { id = produtoVendaDomain.VendaId });
                 }
             }
 

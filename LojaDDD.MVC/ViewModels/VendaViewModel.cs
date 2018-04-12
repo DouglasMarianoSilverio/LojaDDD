@@ -12,7 +12,7 @@ namespace LojaDDD.MVC.ViewModels
     {
         [Key]
         public int Id { get; set; }
-
+        [DisplayName("Cliente")]
         public int ClienteId { get; set; }
         public virtual ClienteViewModel Cliente { get; set; }
 

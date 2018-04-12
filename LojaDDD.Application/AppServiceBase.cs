@@ -5,7 +5,7 @@ using LojaDDD.Domain.Interfaces.Services;
 
 namespace LojaDDD.Application
 {
-    public class AppServiceBase<TEntity> : IDisposable, IAppServiceBase<TEntity> where TEntity : class
+    public class AppServiceBase<TEntity> :  IAppServiceBase<TEntity> where TEntity : class
     {
         private readonly IServiceBase<TEntity> _serviceBase;
 
@@ -19,11 +19,7 @@ namespace LojaDDD.Application
             _serviceBase.Add(obj);
         }
 
-        public void Dispose()
-        {
-            _serviceBase.Dispose();
-        }
-
+     
         public IEnumerable<TEntity> GetAll()
         {
             return _serviceBase.GetAll();

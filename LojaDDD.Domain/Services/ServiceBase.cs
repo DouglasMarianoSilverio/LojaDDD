@@ -20,11 +20,7 @@ namespace LojaDDD.Domain.Services
             _repository.Add(obj);
         }
 
-        public void Dispose()
-        {
-            _repository.Dispose();
-        }
-
+        
         public IEnumerable<TEntity> GetAll()
         {
             return _repository.GetAll();
