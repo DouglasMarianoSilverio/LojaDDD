@@ -1,6 +1,6 @@
 # LojaDDD
 <hr/>
-<h3>Projeto de um sistema de vendas usando arquitetura DDD ( Obrigado ao Eduardo Pinheiro)</h3>
+<h3>Projeto de um sistema de vendas usando arquitetura DDD ( Obrigado ao Eduardo Pires)</h3>
 <p><b>Tecnologias utilizadas:</p></b>
 <ul>
 <li>Entity Framework 6 utilizando Code First com Migrations.</li>
